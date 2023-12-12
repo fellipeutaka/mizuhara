@@ -1,0 +1,85 @@
+{
+  "name": "mizuhara",
+  "version": "1.0.0",
+  "description": "Utility functions and presets to use with Tailwind CSS",
+  "private": false,
+  "author": {
+    "name": "Fellipe Utaka",
+    "email": "fellipeutaka@gmail.com",
+    "url": "https://github.com/fellipeutaka"
+  },
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fellipeutaka/mizuhara"
+  },
+  "bugs": {
+    "url": "https://github.com/fellipeutaka/mizuhara/issues"
+  },
+  "files": [
+    "dist/**"
+  ],
+  "exports": {
+    "./plugins": {
+      "import": "./dist/plugins/index.mjs",
+      "require": "./dist/plugins/index.js",
+      "types": "./dist/plugins/index.d.ts"
+    },
+    "./utils": {
+      "import": "./dist/utils/index.mjs",
+      "require": "./dist/utils/index.js",
+      "types": "./dist/utils/index.d.ts"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "vitest",
+    "build": "tsup",
+    "lint": "eslint . --fix --max-warnings 0",
+    "format": "prettier -w .",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^2.1.0"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1",
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "@commitlint/cz-commitlint": "^18.4.3",
+    "@fellipeutaka/eslint-config": "^1.12.4",
+    "commitizen": "^4.3.0",
+    "eslint": "^8.55.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.0",
+    "tailwindcss": "^3.3.6",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3",
+    "vitest": "^1.0.4"
+  },
+  "peerDependencies": {
+    "tailwindcss": ">=3.0.0 || insiders"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "vitest related --run --bail",
+      "eslint --fix --max-warnings 0",
+      "prettier -w"
+    ],
+    "*.{md,json}": [
+      "prettier -w"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  }
+}
