@@ -43,7 +43,8 @@
     "build": "tsup",
     "lint": "eslint . --fix --max-warnings 0",
     "format": "prettier -w .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release": "pnpm build && changeset publish"
   },
   "dependencies": {
     "clsx": "^2.0.0",
