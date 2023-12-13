@@ -1,5 +1,11 @@
 # mizuhara
 
+## 2.0.0
+
+### Major Changes
+
+- Export default shadcn theme
+
 ## 1.3.0
 
 ### Minor Changes

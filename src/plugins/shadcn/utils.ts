@@ -10,7 +10,7 @@ import type {
   ToHslString,
 } from "./types";
 
-export function defineTheme<T extends SetOptional<ThemeConfig, "dark">>(
+export function defineShadcnTheme<T extends SetOptional<ThemeConfig, "dark">>(
   config: T
 ): Theme {
   const { base = {}, dark, light } = config;

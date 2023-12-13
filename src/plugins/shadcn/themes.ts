@@ -1,6 +1,6 @@
 import type { Theme } from "./types";
 
-export const DEFAULT_DEFAULT: Theme = {
+const DEFAULT_DEFAULT: Theme = {
   ":root": {
     "--background": "0 0% 100%",
     "--foreground": "222.2 47.4% 11.2%",
@@ -64,4 +64,8 @@ export const DEFAULT_DEFAULT: Theme = {
 
     "--ring": "216 34% 17%",
   },
+};
+
+export const shadcnThemes = {
+  default: DEFAULT_DEFAULT,
 };
