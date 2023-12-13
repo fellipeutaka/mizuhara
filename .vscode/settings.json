@@ -1,3 +1,10 @@
 {
-  "cSpell.words": ["mizuhara", "clsx", "commitlint", "treeshake", "tsup"]
+  "cSpell.words": [
+    "clsx",
+    "commitlint",
+    "mizuhara",
+    "shadcn",
+    "treeshake",
+    "tsup"
+  ]
 }
