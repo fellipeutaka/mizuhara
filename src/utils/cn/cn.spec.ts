@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { cn } from "./cn";
+import { cn } from ".";
 
 describe("cn", () => {
   it("should join TailwindCSS classes", () => {
