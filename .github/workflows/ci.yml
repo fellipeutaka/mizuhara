@@ -1,18 +1,15 @@
-name: Release
+name: Node CI
 
-on:
-  push:
-    branches:
-      - main
+on: [pull_request]
 
 jobs:
-  release:
-    if: ${{ github.repository_owner == 'fellipeutaka' }}
-    name: Create a PR for release workflow
+  build:
+    timeout-minutes: 20
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [lts/*]
+
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
@@ -30,13 +27,5 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
 
-      - name: Create Version PR or Publish to NPM
-        id: changesets
-        uses: changesets/action@v1.4.1
-        with:
-          title: "chore: new release"
-          commit: "chore: new release"
-          publish: pnpm release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Test
+        run: pnpm ci:test
