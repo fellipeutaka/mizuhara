@@ -1,1 +1,2 @@
-export * from "./cn";
+export { cn } from "./cn";
+export * from "tailwind-variants";
