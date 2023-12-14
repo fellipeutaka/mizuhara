@@ -1,5 +1,11 @@
 # mizuhara
 
+## 2.1.0
+
+### Minor Changes
+
+- Add overrideShadcnTheme function
+
 ## 2.0.0
 
 ### Major Changes
