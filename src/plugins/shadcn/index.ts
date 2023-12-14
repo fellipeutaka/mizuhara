@@ -101,5 +101,5 @@ export function createShadcnPreset(options: PluginOptions = {}): Config {
   };
 }
 
-export { defineShadcnTheme } from "./utils";
+export { defineShadcnTheme, overrideShadcnTheme } from "./utils";
 export { shadcnThemes } from "./themes";

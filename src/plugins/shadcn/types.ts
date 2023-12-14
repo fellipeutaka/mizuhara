@@ -8,7 +8,11 @@ type Lightness = number;
 export type HexString = `#${string}`;
 export type HslString = `${Hue} ${Saturation}% ${Lightness}%`;
 export type HslTuple = [hue: Hue, saturation: Saturation, lightness: Lightness];
-type CssColor = HslString | HslTuple | HexString;
+type CssColor =
+  | HslString
+  | `hsl(${Hue}, ${Saturation}%, ${Lightness}%)`
+  | HslTuple
+  | HexString;
 type Radius = string | `${number}rem` | number;
 
 export type ThemeColors = {
@@ -97,3 +101,11 @@ export type SetOptional<T, K extends keyof T> = Omit<T, K> &
   Partial<Pick<T, K>> extends infer O
   ? { [K in keyof O]: O[K] }
   : never;
+
+export type RecursivePartial<T> = {
+  [P in keyof T]?: T[P] extends (infer U)[]
+    ? RecursivePartial<U>[]
+    : T[P] extends object | undefined
+    ? RecursivePartial<T[P]>
+    : T[P];
+};
