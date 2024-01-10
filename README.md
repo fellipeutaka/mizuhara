@@ -81,7 +81,6 @@ const config = {
   content: ["./src/**/*.{ts,tsx}"],
   theme: {
     extend: {},
-    },
   },
   plugins: [],
 } satisfies Config;
