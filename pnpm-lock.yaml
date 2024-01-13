@@ -52,6 +52,9 @@ devDependencies:
   tailwindcss:
     specifier: ^3.4.1
     version: 3.4.1
+  tailwindcss-animated:
+    specifier: ^1.0.1
+    version: 1.0.1(tailwindcss@3.4.1)
   tsup:
     specifier: ^8.0.1
     version: 8.0.1(postcss@8.4.32)(typescript@5.3.3)
@@ -5437,6 +5440,14 @@ packages:
     dependencies:
       tailwindcss: 3.4.1
     dev: false
+
+  /tailwindcss-animated@1.0.1(tailwindcss@3.4.1):
+    resolution: {integrity: sha512-u5wusj89ZwP8I+s8WZlaAd7aZTWBN/XEG6QgMKpkIKmAf3xP1A6WYf7oYIKmGaB10UAQaSqWopi/i1ozzZEs8Q==}
+    peerDependencies:
+      tailwindcss: '>=3.1.0'
+    dependencies:
+      tailwindcss: 3.4.1
+    dev: true
 
   /tailwindcss@3.4.1:
     resolution: {integrity: sha512-qAYmXRfk3ENzuPBakNK0SRrUDipP8NQnEY6772uDhflcQz5EhRdD7JNZxyrFHVQNCwULPBn6FNPp9brpO7ctcA==}

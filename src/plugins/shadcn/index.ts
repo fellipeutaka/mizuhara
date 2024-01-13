@@ -1,5 +1,6 @@
 import { type Config } from "tailwindcss";
 import tailwindAnimate from "tailwindcss-animate";
+import tailwindAnimated from "tailwindcss-animated";
 import { fontFamily } from "tailwindcss/defaultTheme";
 import plugin from "tailwindcss/plugin";
 
@@ -97,7 +98,7 @@ export function createShadcnPreset(options: PluginOptions = {}): Config {
   return {
     darkMode: ["class"],
     content: [],
-    plugins: [tailwindAnimate, shadcnPlugin(options)],
+    plugins: [tailwindAnimate, tailwindAnimated, shadcnPlugin(options)],
   };
 }
 

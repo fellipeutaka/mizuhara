@@ -1,5 +1,11 @@
 # mizuhara
 
+## 2.3.0
+
+### Minor Changes
+
+- Add tailwindcss-animated to shadcn preset
+
 ## 2.2.0
 
 ### Minor Changes
