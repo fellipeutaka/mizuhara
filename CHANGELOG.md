@@ -1,5 +1,11 @@
 # mizuhara
 
+## 2.4.0
+
+### Minor Changes
+
+- Add support for RGBA colors
+
 ## 2.3.0
 
 ### Minor Changes

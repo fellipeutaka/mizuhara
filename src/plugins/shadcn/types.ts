@@ -12,7 +12,8 @@ type CssColor =
   | HslString
   | `hsl(${Hue}, ${Saturation}%, ${Lightness}%)`
   | HslTuple
-  | HexString;
+  | HexString
+  | (string & NonNullable<unknown>);
 type Radius = string | `${number}rem` | number;
 
 export type ThemeColors = {

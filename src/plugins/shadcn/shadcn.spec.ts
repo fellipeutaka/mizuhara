@@ -22,8 +22,8 @@ describe("shadcn plugin", () => {
         "--border": "214 30% 91%",
         "--input": "214 30% 91%",
 
-        "--primary": "222 46% 11%",
-        "--primary-foreground": "210 40% 98%",
+        "--primary": "191 100% 50%",
+        "--primary-foreground": "190 97% 86%",
 
         "--secondary": "210 40% 96%",
         "--secondary-foreground": "222 46% 11%",
@@ -60,8 +60,8 @@ describe("shadcn plugin", () => {
         border: "#e1e7ef",
         input: "#e1e7ef",
 
-        primary: "#0f1729",
-        primaryForeground: "#f8fafc",
+        primary: "#00cfffc3",
+        primaryForeground: "#bbf3fef7",
 
         secondary: "#f1f5f9",
         secondaryForeground: "#0f1729",

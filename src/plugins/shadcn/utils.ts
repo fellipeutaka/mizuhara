@@ -174,7 +174,7 @@ function toCSSRuleObject(
 }
 
 function isHexColor(value: string): value is HexString {
-  return /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(value);
+  return /^#([A-Fa-f0-9]{8}|[A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(value);
 }
 
 function isHslColor(value: string): value is HslString {
@@ -192,7 +192,9 @@ function rgbToHsl(hex: HexString): HslTuple {
     return r + r + g + g + b + b;
   }) as HexString;
 
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})?$/i.exec(
+    hex
+  );
   let r = parseInt(result?.[1] ?? "", 16);
   let g = parseInt(result?.[2] ?? "", 16);
   let b = parseInt(result?.[3] ?? "", 16);
