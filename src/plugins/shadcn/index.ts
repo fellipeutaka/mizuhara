@@ -5,6 +5,7 @@ import { fontFamily } from "tailwindcss/defaultTheme";
 import plugin from "tailwindcss/plugin";
 
 import { shadcnThemes } from "./themes";
+
 import type { PluginOptions } from "./types";
 
 const shadcnPlugin = plugin.withOptions<PluginOptions>(
@@ -12,13 +13,15 @@ const shadcnPlugin = plugin.withOptions<PluginOptions>(
     return ({ addBase }) => {
       addBase({
         ...(options.theme ?? shadcnThemes.default),
-        "*": {
-          "@apply border-border": {},
-        },
-        body: {
-          "@apply bg-background text-foreground antialiased": {},
-          "font-feature-settings": `"rlig" 1, "calt" 1`,
-        },
+        ...((options.applyBase ?? true) && {
+          "*": {
+            "@apply border-border": {},
+          },
+          body: {
+            "@apply bg-background text-foreground antialiased": {},
+            "font-feature-settings": `"rlig" 1, "calt" 1`,
+          },
+        }),
       });
     };
   },

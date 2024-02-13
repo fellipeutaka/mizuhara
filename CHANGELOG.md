@@ -1,5 +1,11 @@
 # mizuhara
 
+## 2.5.0
+
+### Minor Changes
+
+- add applyBase options to shadcn
+
 ## 2.4.0
 
 ### Minor Changes

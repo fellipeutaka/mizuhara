@@ -1,5 +1,6 @@
 export type PluginOptions = {
   theme?: Theme;
+  applyBase?: boolean;
 };
 
 type Hue = number;

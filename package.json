@@ -1,6 +1,6 @@
 {
   "name": "mizuhara",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "Utility functions and presets to use with Tailwind CSS",
   "private": false,
   "author": {
@@ -16,7 +16,9 @@
   "bugs": {
     "url": "https://github.com/fellipeutaka/mizuhara/issues"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "exports": {
     "./plugins": {
       "import": "./dist/plugins/index.mjs",
