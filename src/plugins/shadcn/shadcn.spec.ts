@@ -213,7 +213,7 @@ describe("shadcn plugin", () => {
           ring: "#94a3b8",
         },
       }),
-    ).toThrow(new Error(`Invalid color value: ${invalidColor}`));
+    ).toThrowError(`Invalid color value: ${invalidColor}`);
   });
 
   it("should NOT be able to define a theme using invalid HEX form", () => {
@@ -259,6 +259,6 @@ describe("shadcn plugin", () => {
           ring: "#94a3b8",
         },
       }),
-    ).toThrow(new Error(`Invalid color value: ${invalidColor}`));
+    ).toThrowError(`Invalid color value: ${invalidColor}`);
   });
 });
