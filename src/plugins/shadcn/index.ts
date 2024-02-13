@@ -91,7 +91,7 @@ const shadcnPlugin = plugin.withOptions<PluginOptions>(
         },
       },
     },
-  })
+  }),
 );
 
 export function createShadcnPreset(options: PluginOptions = {}): Config {

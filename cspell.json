@@ -4,16 +4,18 @@
   "ignorePaths": ["node_modules", "pnpm-lock.yaml", "dist"],
   "language": "en",
   "words": [
-    "Fellipe",
-    "Utaka",
-    "fellipeutaka",
+    "biomejs",
     "calt",
     "clsx",
     "commitlint",
+    "Fellipe",
+    "fellipeutaka",
     "mizuhara",
+    "RGBA",
     "rlig",
     "shadcn",
     "treeshake",
-    "tsup"
+    "tsup",
+    "Utaka"
   ]
 }

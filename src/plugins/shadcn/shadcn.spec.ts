@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 
 import { defineShadcnTheme, overrideShadcnTheme, shadcnThemes } from ".";
 import type { Theme } from "./types";
@@ -212,7 +212,7 @@ describe("shadcn plugin", () => {
 
           ring: "#94a3b8",
         },
-      })
+      }),
     ).toThrow(new Error(`Invalid color value: ${invalidColor}`));
   });
 
@@ -220,7 +220,7 @@ describe("shadcn plugin", () => {
     const invalidColor = [222, 100, 50, 50] as unknown as [
       number,
       number,
-      number
+      number,
     ];
 
     expect(() =>
@@ -258,7 +258,7 @@ describe("shadcn plugin", () => {
 
           ring: "#94a3b8",
         },
-      })
+      }),
     ).toThrow(new Error(`Invalid color value: ${invalidColor}`));
   });
 });

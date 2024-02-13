@@ -12,7 +12,7 @@ import type {
 } from "./types";
 
 export function defineShadcnTheme<T extends SetOptional<ThemeConfig, "dark">>(
-  config: T
+  config: T,
 ): Theme {
   const { base = {}, dark, light } = config;
   return {
@@ -36,7 +36,7 @@ export function defineShadcnTheme<T extends SetOptional<ThemeConfig, "dark">>(
 }
 
 export function overrideShadcnTheme<T extends RecursivePartial<ThemeConfig>>(
-  config: T
+  config: T,
 ): Theme {
   const { base = {}, dark = {}, light = {} } = config;
   return {
@@ -130,14 +130,14 @@ function removeHslString(value: string) {
 }
 
 function toCSSRuleObject(
-  colors: ColorsToCamelCase<ThemeColors>
+  colors: ColorsToCamelCase<ThemeColors>,
 ): ToHslString<ThemeColors> {
   return Object.entries(colors).reduce<ToHslString<ThemeColors>>(
     (agg, [key, value]) => {
       let color: HslString;
       if (typeof value === "string") {
         if (isHexColor(value)) {
-          color = hslToSting(rgbToHsl(value));
+          color = hslToSting(hexToHsl(value));
         } else if (isHslColor(removeHslString(value))) {
           color = removeHslString(value) as HslString;
         } else {
@@ -161,15 +161,13 @@ function toCSSRuleObject(
         throw new Error(`Invalid color value: ${value}`);
       }
       agg[
-        ("--" +
-          key.replace(
-            /[A-Z]/g,
-            (letter) => `-${letter.toLowerCase()}`
-          )) as keyof ToHslString<ThemeColors>
+        "--".concat(
+          key.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`),
+        ) as keyof ToHslString<ThemeColors>
       ] = color;
       return agg;
     },
-    {} as ToHslString<ThemeColors>
+    {} as ToHslString<ThemeColors>,
   );
 }
 
@@ -185,27 +183,26 @@ function hslToSting(value: HslTuple): HslString {
   return `${value[0]} ${value[1]}% ${value[2]}%`;
 }
 
-function rgbToHsl(hex: HexString): HslTuple {
+function hexToHsl(hex: HexString): HslTuple {
   // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
   const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-  hex = hex.replace(shorthandRegex, (_m, r, g, b) => {
-    return r + r + g + g + b + b;
-  }) as HexString;
 
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})?$/i.exec(
-    hex
+    hex.replace(shorthandRegex, (_m, r, g, b) => {
+      return r + r + g + g + b + b;
+    }),
   );
-  let r = parseInt(result?.[1] ?? "", 16);
-  let g = parseInt(result?.[2] ?? "", 16);
-  let b = parseInt(result?.[3] ?? "", 16);
+  const r = parseInt(result?.[1] ?? "", 16) / 255;
+  const g = parseInt(result?.[2] ?? "", 16) / 255;
+  const b = parseInt(result?.[3] ?? "", 16) / 255;
 
-  (r /= 255), (g /= 255), (b /= 255);
-  const max = Math.max(r, g, b),
-    min = Math.min(r, g, b);
-  let h,
-    s,
-    l = (max + min) / 2;
-  if (max == min) {
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  let h = 0;
+  let s: number;
+  let l = (max + min) / 2;
+
+  if (max === min) {
     h = s = 0; // achromatic
   } else {
     const d = max - min;

@@ -62,8 +62,8 @@ export type ThemeColors = {
 type ConvertKey<S extends string> = S extends `--${infer T}-${infer U}`
   ? `${T}${Capitalize<ConvertKey<U>>}`
   : S extends `--${infer T}`
-  ? T
-  : S;
+    ? T
+    : S;
 
 export type ColorsToCamelCase<T> = T extends object
   ? {
@@ -107,6 +107,6 @@ export type RecursivePartial<T> = {
   [P in keyof T]?: T[P] extends (infer U)[]
     ? RecursivePartial<U>[]
     : T[P] extends object | undefined
-    ? RecursivePartial<T[P]>
-    : T[P];
+      ? RecursivePartial<T[P]>
+      : T[P];
 };
